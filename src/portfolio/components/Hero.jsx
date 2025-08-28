@@ -248,125 +248,30 @@ export default function Hero() {
             </div>
           </div>
 
-          {/* RIGHT: Code Window (hidden on small & medium screens) */}
-          <div className="lg:col-span-4 hidden lg:flex justify-center lg:justify-end">
-            <div className="relative group w-full max-w-sm">
-              <div className="absolute -inset-1 bg-gradient-to-r from-purple-600 to-cyan-600 rounded-xl blur opacity-25 group-hover:opacity-50 transition duration-1000 group-hover:duration-200 hidden sm:block"></div>
-              <div className="relative rounded-lg border border-white/20 bg-black/80 backdrop-blur-xl overflow-hidden shadow-2xl group-hover:scale-105 transition-all duration-500">
-                {/* Window header */}
-                <div className="flex items-center justify-between px-3 py-2 bg-gray-800/90 border-b border-white/10">
-                  <div className="flex items-center gap-2">
-                    <div className="flex gap-1.5">
-                      <div className="w-3 h-3 bg-red-500 rounded-full"></div>
-                      <div className="w-3 h-3 bg-yellow-500 rounded-full"></div>
-                      <div className="w-3 h-3 bg-green-500 rounded-full"></div>
-                    </div>
-                    <span className="text-xs text-gray-400 ml-2 font-mono">python_script.py</span>
+          {/* RIGHT: Card */}
+          <div className="lg:col-span-4 flex justify-center lg:justify-end">
+            <div className="relative group w-full max-w-xs">
+              <div className="absolute -inset-1 bg-gradient-to-r from-purple-600 to-cyan-600 rounded-3xl blur opacity-25 group-hover:opacity-75 transition duration-1000 group-hover:duration-200 hidden sm:block"></div>
+              <div className="relative p-4 sm:p-6 rounded-2xl border border-white/20 bg-black/40 backdrop-blur-xl hover:scale-105 transition-all duration-500 text-center w-full max-w-xs group-hover:bg-black/60">
+                <div className="relative mb-4 sm:mb-6">
+                  <div className="absolute inset-0 bg-gradient-to-r from-purple-600 to-cyan-600 rounded-full blur-md opacity-50 animate-pulse hidden sm:block"></div>
+                  <div className="relative w-14 h-14 sm:w-20 sm:h-20 mx-auto rounded-full bg-gradient-to-r from-purple-600/80 to-cyan-600/80 flex items-center justify-center text-lg sm:text-2xl font-bold text-white shadow-lg border border-white/10">
+                    H
                   </div>
-                  <div className="text-xs text-gray-500">●</div>
+                  <div className="absolute inset-0 rounded-full border-2 border-purple-400/30 animate-ping"></div>
                 </div>
-                
-                {/* Code content */}
-                <div className="p-3 sm:p-4 font-mono text-xs sm:text-sm leading-relaxed">
-                  <div className="space-y-1">
-                    <div className="flex">
-                      <span className="text-gray-500 mr-2 select-none">1</span>
-                      <span>
-                        <span className="text-purple-400">class</span>{" "}
-                        <span className="text-yellow-300">Developer</span>
-                        <span className="text-white">:</span>
-                      </span>
-                    </div>
-                    <div className="flex">
-                      <span className="text-gray-500 mr-2 select-none">2</span>
-                      <span className="text-gray-400 ml-4">
-                        <span className="text-purple-400">def</span>{" "}
-                        <span className="text-blue-400">__init__</span>
-                        <span className="text-white">(</span>
-                        <span className="text-orange-400">self</span>
-                        <span className="text-white">):</span>
-                      </span>
-                    </div>
-                    <div className="flex">
-                      <span className="text-gray-500 mr-2 select-none">3</span>
-                      <span className="text-white ml-8">
-                        <span className="text-orange-400">self</span>
-                        <span className="text-white">.name = </span>
-                        <span className="text-green-400">"Henry"</span>
-                      </span>
-                    </div>
-                    <div className="flex">
-                      <span className="text-gray-500 mr-2 select-none">4</span>
-                      <span className="text-white ml-8">
-                        <span className="text-orange-400">self</span>
-                        <span className="text-white">.skills = [</span>
-                      </span>
-                    </div>
-                    <div className="flex">
-                      <span className="text-gray-500 mr-2 select-none">5</span>
-                      <span className="text-green-400 ml-12">
-                        "Python", "JavaScript",
-                      </span>
-                    </div>
-                    <div className="flex">
-                      <span className="text-gray-500 mr-2 select-none">6</span>
-                      <span className="text-green-400 ml-12">
-                        "React", "Node.js"
-                      </span>
-                    </div>
-                    <div className="flex">
-                      <span className="text-gray-500 mr-2 select-none">7</span>
-                      <span className="text-white ml-8">]</span>
-                    </div>
-                    <div className="flex">
-                      <span className="text-gray-500 mr-2 select-none">8</span>
-                      <span></span>
-                    </div>
-                    <div className="flex">
-                      <span className="text-gray-500 mr-2 select-none">9</span>
-                      <span className="text-gray-400 ml-4">
-                        <span className="text-purple-400">def</span>{" "}
-                        <span className="text-blue-400">solve_problems</span>
-                        <span className="text-white">(</span>
-                        <span className="text-orange-400">self</span>
-                        <span className="text-white">):</span>
-                      </span>
-                    </div>
-                    <div className="flex">
-                      <span className="text-gray-500 mr-2 select-none">10</span>
-                      <span className="text-purple-400 ml-8">
-                        return <span className="text-green-400">"Clean, scalable code"</span>
-                      </span>
-                    </div>
-                    <div className="flex">
-                      <span className="text-gray-500 mr-2 select-none">11</span>
-                      <span></span>
-                    </div>
-                    <div className="flex">
-                      <span className="text-gray-500 mr-2 select-none">12</span>
-                      <span className="text-gray-400">
-                        <span className="text-gray-500"># Ready to build amazing things</span>
-                      </span>
-                    </div>
-                    <div className="flex">
-                      <span className="text-gray-500 mr-2 select-none">13</span>
-                      <span className="text-white">
-                        henry = <span className="text-yellow-300">Developer</span>()
-                      </span>
-                    </div>
-                    <div className="flex items-center">
-                      <span className="text-gray-500 mr-2 select-none">14</span>
-                      <span className="text-cyan-400">
-                        print<span className="text-white">(henry.solve_problems())</span>
-                      </span>
-                      <div className="ml-2 w-2 h-4 bg-cyan-400 animate-pulse"></div>
-                    </div>
+                <h3 className="text-sm sm:text-base font-semibold text-gray-200 mb-1">Available for Work</h3>
+                <p className="text-gray-400 text-xs sm:text-sm mb-2">Let's build something amazing together</p>
+                <div className="flex items-center justify-center gap-2">
+                  <div className="relative">
+                    <div className="w-2.5 h-2.5 bg-green-400 rounded-full animate-pulse"></div>
+                    <div className="absolute inset-0 bg-green-400 rounded-full animate-ping opacity-20"></div>
                   </div>
+                  <span className="text-green-300 text-xs sm:text-sm font-medium">Online</span>
                 </div>
               </div>
             </div>
           </div>
-          {/* END RIGHT */}
         </div>
 
         {/* Actions */}
