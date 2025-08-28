@@ -1,5 +1,6 @@
 // src/portfolio/components/Hero.jsx
 import React, { useEffect, useRef, useState } from "react";
+import { FileText, ExternalLink, X, Rocket } from "lucide-react";
 
 export default function Hero() {
   const [index, setIndex] = useState(0);
@@ -9,6 +10,26 @@ export default function Hero() {
   const [animating, setAnimating] = useState(false);
   // +1 => headline moves RIGHT this cycle; -1 => LEFT. Subtitle is opposite.
   const [dir, setDir] = useState(1);
+
+  // === resume link + desktop detection ===
+  const RESUME_ID = "1256CwdcG29KalTaY8wse8iC1E6J7OlzXOTGT0FKzKj0";
+  const RESUME_URL = `https://docs.google.com/document/d/${RESUME_ID}/edit?pli=1&tab=t.0`;
+  const RESUME_EMBED_URL = `https://docs.google.com/document/d/${RESUME_ID}/preview`;
+
+  const [isDesktop, setIsDesktop] = useState(false);
+  useEffect(() => {
+    if (typeof window === "undefined") return;
+    const mq = window.matchMedia("(min-width: 1024px)"); // Tailwind lg
+    const apply = (e) => setIsDesktop(e.matches);
+    setIsDesktop(mq.matches);
+    if (mq.addEventListener) {
+      mq.addEventListener("change", apply);
+      return () => mq.removeEventListener("change", apply);
+    } else {
+      mq.addListener(apply);
+      return () => mq.removeListener(apply);
+    }
+  }, []);
 
   const words = [
     { text: "Henry", subtitle: "That's me - your next developer" },
@@ -33,8 +54,8 @@ export default function Hero() {
     { text: "Your Choice", subtitle: "Let's create something amazing together" }
   ];
 
-  const CYCLE_MS = 3000;   // time between cycle starts
-  const ANIM_MS = 550;     // slide duration (must match CSS)
+  const CYCLE_MS = 3200;  // a tad more breathing room
+  const ANIM_MS = 800;    // slightly longer for smoothness
 
   const timerRef = useRef(null);
   const aliveRef = useRef(true);
@@ -163,7 +184,7 @@ export default function Hero() {
                       ? (headlineGoingRight ? "anim-out-right" : "anim-out-left")
                       : "translate-x-0",
                   ].join(" ")}
-                  style={{ whiteSpace: "nowrap" }}
+                  style={{ whiteSpace: "nowrap", willChange: "transform, opacity" }}
                 >
                   {words[index].text}
                 </div>
@@ -178,7 +199,7 @@ export default function Hero() {
                       "bg-gradient-to-r from-white via-purple-200 to-cyan-200",
                       headlineGoingRight ? "anim-in-from-left" : "anim-in-from-right",
                     ].join(" ")}
-                    style={{ whiteSpace: "nowrap" }}
+                    style={{ whiteSpace: "nowrap", willChange: "transform, opacity" }}
                   >
                     {words[nextIndex].text}
                   </div>
@@ -202,7 +223,7 @@ export default function Hero() {
                       ? (subtitleGoingRight ? "anim-out-right" : "anim-out-left")
                       : "translate-x-0",
                   ].join(" ")}
-                  style={{ whiteSpace: "nowrap" }}
+                  style={{ whiteSpace: "nowrap", willChange: "transform, opacity" }}
                 >
                   {words[index].subtitle}
                 </div>
@@ -216,7 +237,7 @@ export default function Hero() {
                       "text-xs sm:text-sm md:text-lg",
                       subtitleGoingRight ? "anim-in-from-left" : "anim-in-from-right",
                     ].join(" ")}
-                    style={{ whiteSpace: "nowrap" }}
+                    style={{ whiteSpace: "nowrap", willChange: "transform, opacity" }}
                   >
                     {words[nextIndex].subtitle}
                   </div>
@@ -277,11 +298,20 @@ export default function Hero() {
         {/* Actions */}
         <div className="flex flex-col sm:flex-row gap-3 sm:gap-6 justify-center mt-6 sm:mt-8 lg:mt-12 px-4">
           <button
-            onClick={() => setShowPreview(true)}
+            onClick={() => {
+              if (isDesktop) {
+                setShowPreview(true);
+              } else {
+                window.open(RESUME_URL, "_blank", "noopener,noreferrer");
+              }
+            }}
             className="group relative w-full sm:w-auto px-5 sm:px-10 py-3 sm:py-4 bg-gradient-to-r from-purple-600 via-purple-500 to-blue-600 rounded-2xl text-sm sm:text-base md:text-lg font-bold text-white overflow-hidden transform transition-all duration-300 hover:scale-105 sm:hover:scale-110 hover:rotate-1 shadow-2xl hover:shadow-purple-500/50 text-center border border-purple-400/30"
             title="Preview resume"
           >
-            <span className="relative z-10 flex items-center justify-center gap-2">📄 Preview Resume</span>
+            <span className="relative z-10 flex items-center justify-center gap-2">
+              <FileText className="w-5 h-5" />
+              Preview Resume
+            </span>
             <div className="absolute inset-0 bg-gradient-to-r from-blue-600 to-purple-600 opacity-0 group-hover:opacity-100 transition-opacity duration-500"></div>
           </button>
 
@@ -289,7 +319,10 @@ export default function Hero() {
             onClick={() => scrollToSection("contact")}
             className="group relative w-full sm:w-auto px-5 sm:px-10 py-3 sm:py-4 bg-white/5 backdrop-blur-lg border-2 border-white/18 rounded-2xl text-sm sm:text-base md:text-lg font-bold text-white overflow-hidden transform transition-all duration-300 hover:scale-105 sm:hover:scale-110 hover:-rotate-1 hover:bg-white/10 hover:border-purple-400/50 text-center"
           >
-            <span className="relative z-10 flex items-center justify-center gap-2">🚀 Let's Connect</span>
+            <span className="relative z-10 flex items-center justify-center gap-2">
+              <Rocket className="w-5 h-5" />
+              Let's Connect
+            </span>
             <div className="absolute inset-0 bg-gradient-to-r from-purple-600/20 to-cyan-600/20 scale-x-0 group-hover:scale-x-100 transition-transform duration-500 origin-left"></div>
           </button>
         </div>
@@ -305,7 +338,7 @@ export default function Hero() {
         </div>
       </div>
 
-      {/* PDF Preview Modal */}
+      {/* PDF Preview Modal (desktop only) */}
       {showPreview && (
         <div
           className="fixed inset-0 z-[9999] flex items-center justify-center p-2 sm:p-4"
@@ -318,73 +351,90 @@ export default function Hero() {
           <div className="relative z-[10000] w-full h-full max-w-4xl bg-black/95 rounded-lg sm:rounded-xl overflow-hidden shadow-2xl border border-white/10">
             <div className="flex items-center justify-between p-2 sm:p-4 border-b border-white/10 bg-black/90 backdrop-blur-sm">
               <div className="flex items-center gap-2 sm:gap-3 min-w-0 flex-1">
-                <div className="w-6 h-6 sm:w-8 sm:h-8 flex items-center justify-center rounded bg-gradient-to-r from-purple-600 to-cyan-600 text-white font-bold text-xs sm:text-sm">
-                  📄
+                <div className="w-6 h-6 sm:w-8 sm:h-8 flex items-center justify-center rounded bg-gradient-to-r from-purple-600 to-cyan-600 text-white">
+                  <FileText className="w-4 h-4 sm:w-5 sm:h-5" />
                 </div>
                 <div className="min-w-0 flex-1">
                   <h4 className="text-xs sm:text-base font-semibold text-white truncate">Resume Preview</h4>
-                  <p className="text-xs text-gray-400 truncate hidden sm:block">Previewing CV.pdf</p>
+                  <p className="text-xs text-gray-400 truncate hidden sm:block">Previewing Google Doc</p>
                 </div>
               </div>
               <div className="flex items-center gap-1 sm:gap-2 flex-shrink-0">
                 <a
-                  href="/CV.pdf"
+                  href={RESUME_URL}
                   target="_blank"
                   rel="noopener noreferrer"
-                  download
                   className="inline-flex items-center gap-1 px-2 py-1 sm:px-3 sm:py-2 bg-gradient-to-r from-purple-600 to-cyan-600 text-white text-xs sm:text-sm rounded hover:opacity-90 transition"
                 >
-                  <span className="hidden xs:inline">Save</span>
+                  <ExternalLink className="w-4 h-4" />
+                  <span className="hidden xs:inline">Open</span>
                 </a>
-                <button onClick={() => setShowPreview(false)} aria-label="Close preview" className="p-1 sm:p-2 rounded hover:bg-white/10 transition text-white text-sm sm:text-base">
-                  ✕
+                <button
+                  onClick={() => setShowPreview(false)}
+                  aria-label="Close preview"
+                  className="p-1 sm:p-2 rounded hover:bg-white/10 transition text-white text-sm sm:text-base flex items-center"
+                >
+                  <X className="w-4 h-4" />
                 </button>
               </div>
             </div>
             <div className="w-full h-[calc(100%-44px)] sm:h-[calc(100%-60px)] bg-gray-900 relative overflow-hidden">
               <iframe
-                src="/CV.pdf#view=FitH"
+                src={RESUME_EMBED_URL}
                 title="CV Preview"
                 width="100%"
                 height="100%"
                 className="border-0"
                 style={{ minHeight: "400px", backgroundColor: "#1f2937" }}
+                allow="clipboard-read; clipboard-write"
               />
+              <div className="absolute bottom-2 right-2 text-[10px] sm:text-xs text-gray-400 bg-black/50 px-2 py-1 rounded">
+                If preview doesn’t load,{" "}
+                <a href={RESUME_URL} target="_blank" rel="noopener noreferrer" className="underline inline-flex items-center gap-1">
+                  open in new tab <ExternalLink className="w-3 h-3" />
+                </a>.
+              </div>
             </div>
           </div>
         </div>
       )}
 
-      {/* Custom animations + responsive tweaks */}
+      {/* Smoother animations + responsive tweaks */}
       <style jsx>{`
         /* ==== SLIDE ANIMATIONS (match ANIM_MS) ==== */
         .anim-out-right {
-          animation: out-right ${ANIM_MS}ms cubic-bezier(.22,.61,.36,1) forwards;
+          animation: out-right ${ANIM_MS}ms cubic-bezier(.2,.8,.2,1) forwards;
         }
         .anim-out-left {
-          animation: out-left ${ANIM_MS}ms cubic-bezier(.22,.61,.36,1) forwards;
+          animation: out-left ${ANIM_MS}ms cubic-bezier(.2,.8,.2,1) forwards;
         }
         .anim-in-from-left {
-          animation: in-from-left ${ANIM_MS}ms cubic-bezier(.22,.61,.36,1) forwards;
+          animation: in-from-left ${ANIM_MS}ms cubic-bezier(.2,.8,.2,1) forwards;
         }
         .anim-in-from-right {
-          animation: in-from-right ${ANIM_MS}ms cubic-bezier(.22,.61,.36,1) forwards;
+          animation: in-from-right ${ANIM_MS}ms cubic-bezier(.2,.8,.2,1) forwards;
         }
+
+        /* Diagonal with slight vertical drift + GPU-friendly transform3d */
         @keyframes out-right {
-          from { transform: translateX(0); opacity: 1; }
-          to { transform: translateX(110%); opacity: 0.0; }
+          0%   { transform: translate3d(0, 0, 0); opacity: 1; filter: saturate(1); }
+          60%  { opacity: .6; }
+          100% { transform: translate3d(110%, 6px, 0); opacity: 0; }
         }
         @keyframes out-left {
-          from { transform: translateX(0); opacity: 1; }
-          to { transform: translateX(-110%); opacity: 0.0; }
+          0%   { transform: translate3d(0, 0, 0); opacity: 1; filter: saturate(1); }
+          60%  { opacity: .6; }
+          100% { transform: translate3d(-110%, -6px, 0); opacity: 0; }
         }
         @keyframes in-from-left {
-          from { transform: translateX(-110%); opacity: 0.0; }
-          to { transform: translateX(0); opacity: 1; }
+          0%   { transform: translate3d(-110%, -6px, 0); opacity: 0; }
+          20%  { opacity: .65; }
+          100% { transform: translate3d(0, 0, 0); opacity: 1; }
         }
         @keyframes in-from-right {
-          from { transform: translateX(110%); opacity: 0.0; }
-          to { transform: translateX(0); opacity: 1; }
+          0%   { transform: translate3d(110%, 6px, 0); opacity: 0; }
+          20%  { opacity: .65; }
+          100% { transform: translate3d(0, 0, 0); opacity: 1; }
         }
 
         /* Background/perf helpers you already had */
@@ -413,6 +463,15 @@ export default function Hero() {
         .animate-float-fast { animation: float-fast 3s ease-in-out infinite; }
         .animate-spin-slow { animation: spin-slow 20s linear infinite; }
         .animate-bounce-slow { animation: bounce-slow 3s ease-in-out infinite; }
+
+        /* Respect reduced-motion */
+        @media (prefers-reduced-motion: reduce) {
+          .anim-out-right, .anim-out-left, .anim-in-from-left, .anim-in-from-right {
+            animation: none !important;
+            transform: translate3d(0,0,0) !important;
+            opacity: 1 !important;
+          }
+        }
 
         @media (max-width: 768px) {
           #home { scroll-margin-top: 72px; padding-top: 45px; }
