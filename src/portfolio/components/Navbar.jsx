@@ -54,13 +54,13 @@ export default function Navbar() {
       observers.forEach(({ observer, el }) => {
         try {
           observer.unobserve(el);
-        } catch (e) {
+        } catch {
           /* noop */
         }
       });
       try {
         observer.disconnect();
-      } catch (e) {
+      } catch {
         /* noop */
       }
     };

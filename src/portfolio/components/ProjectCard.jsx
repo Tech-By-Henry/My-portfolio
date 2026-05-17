@@ -11,7 +11,6 @@ export default function ProjectCard({
   },
 }) {
   const [isHovered, setIsHovered] = useState(false);
-  const [mousePosition, setMousePosition] = useState({ x: 0, y: 0 });
   const [rotateX, setRotateX] = useState(0);
   const [rotateY, setRotateY] = useState(0);
   const cardRef = useRef(null);
@@ -24,7 +23,6 @@ export default function ProjectCard({
       const y = e.clientY - rect.top;
       const centerX = rect.width / 2;
       const centerY = rect.height / 2;
-      setMousePosition({ x, y });
       setRotateX((y - centerY) / 15);
       setRotateY((centerX - x) / 15);
     };
@@ -124,6 +122,19 @@ export default function ProjectCard({
 
           {/* Content Area */}
           <div className="flex-1 flex flex-col min-h-0">
+            {project.image && (
+              <div className="relative mb-4 sm:mb-6 h-36 sm:h-44 lg:h-52 rounded-xl sm:rounded-2xl overflow-hidden border border-white/10 bg-black/30">
+                <img
+                  src={project.image}
+                  alt={`${project.title} preview`}
+                  loading="lazy"
+                  className="block w-full h-full min-w-full min-h-full object-cover object-left-top transform group-hover:scale-105 transition-transform duration-700"
+                />
+                <div className="absolute inset-0 bg-gradient-to-t from-black/20 via-transparent to-transparent"></div>
+                <div className="absolute inset-x-0 bottom-0 h-px bg-gradient-to-r from-purple-500/80 via-cyan-400/80 to-transparent"></div>
+              </div>
+            )}
+
             <div className="relative mb-4 sm:mb-6 overflow-hidden">
               <div className="relative z-10">
                 <h3 className="text-lg sm:text-xl lg:text-2xl font-bold text-white mb-2 transform group-hover:translate-x-1 sm:group-hover:translate-x-2 transition-transform duration-300 line-clamp-2">
@@ -144,10 +155,18 @@ export default function ProjectCard({
                 <div className="absolute right-0 top-0 w-full h-full border-r-2 border-cyan-500/20 transform translate-x-full group-hover:translate-x-0 transition-transform duration-500 delay-200"></div>
               </div>
 
-              <p className="relative text-slate-300 leading-relaxed text-sm sm:text-base transform group-hover:scale-105 transition-transform duration-300 line-clamp-3 sm:line-clamp-4">
+              <p className="relative text-slate-300 leading-relaxed text-sm sm:text-base transform group-hover:scale-105 transition-transform duration-300">
                 {project.description}
               </p>
             </div>
+
+            {project.contribution && (
+              <div className="relative mb-4 sm:mb-6">
+                <p className="text-xs sm:text-sm leading-relaxed text-cyan-100/90 border-l-2 border-cyan-400/50 pl-3">
+                  {project.contribution}
+                </p>
+              </div>
+            )}
 
             <div className="relative mb-4 sm:mb-6 lg:mb-8">
               <div className="flex flex-wrap gap-2 sm:gap-3">
@@ -192,8 +211,9 @@ export default function ProjectCard({
           <div className="flex-shrink-0 pt-3 sm:pt-4 lg:pt-5">
             <div className="flex justify-end gap-2 sm:gap-3">
               {/* GitHub Button */}
+              {project.github && (
               <a
-                href={project.github || "#"}
+                href={project.github}
                 target="_blank"
                 rel="noopener noreferrer"
                 aria-label={`${project.title} GitHub`}
@@ -215,10 +235,12 @@ export default function ProjectCard({
                 {/* Button Shine */}
                 <div className="absolute inset-0 bg-gradient-to-r from-transparent via-white/10 to-transparent transform -skew-x-12 -translate-x-full group-hover/button-hover:translate-x-full transition-transform duration-700"></div>
               </a>
+              )}
 
               {/* Website Button */}
+              {project.website && (
               <a
-                href={project.website || "#"}
+                href={project.website}
                 target="_blank"
                 rel="noopener noreferrer"
                 aria-label={`${project.title} Website`}
@@ -231,6 +253,7 @@ export default function ProjectCard({
                 {/* Button Shine */}
                 <div className="absolute inset-0 bg-gradient-to-r from-transparent via-white/10 to-transparent transform -skew-x-12 -translate-x-full group-hover/button-hover:translate-x-full transition-transform duration-700"></div>
               </a>
+              )}
             </div>
           </div>
           {/* end footer */}

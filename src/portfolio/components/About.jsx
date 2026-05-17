@@ -1,11 +1,10 @@
-import React, { useState, useEffect, useRef } from 'react';
+import React, { useState, useEffect, useMemo, useRef } from 'react';
 
 export default function About() {
   const [mousePos, setMousePos] = useState({ x: 0, y: 0 });
   const [activeSection, setActiveSection] = useState(0);
   const [typingText, setTypingText] = useState('');
   const [currentRole, setCurrentRole] = useState(0);
-  const [scrollProgress, setScrollProgress] = useState(0);
   const [isMobile, setIsMobile] = useState(false);
   const containerRef = useRef(null);
 
@@ -18,13 +17,13 @@ export default function About() {
   // NEW: swipe-to-close support
   const touchStartYRef = useRef(null);
 
-  const roles = [
+  const roles = useMemo(() => [
     "Full-Stack Developer",
     "Backend Architect",
     "API Specialist",
     "Problem Solver",
     "Code Craftsman"
-  ];
+  ], []);
 
   const expertise = [
     {
@@ -53,7 +52,7 @@ export default function About() {
     }
   ];
 
-  const journey = [
+  const journey = useMemo(() => [
     {
       phase: "Foundation",
       period: "2021-2022",
@@ -78,7 +77,7 @@ export default function About() {
       milestone: "Leading Development",
       details: "Creating scalable systems and mentoring other developers"
     }
-  ];
+  ], []);
 
   const principles = [
     "Clean, maintainable code",
@@ -106,7 +105,7 @@ export default function About() {
     }, 80);
 
     return () => clearInterval(timer);
-  }, [currentRole]);
+  }, [currentRole, roles]);
 
   // Detect mobile
   useEffect(() => {
@@ -146,21 +145,7 @@ export default function About() {
       setActiveSection(prev => (prev + 1) % journey.length);
     }, 3000);
     return () => clearInterval(interval);
-  }, []);
-
-  // Scroll progress
-  useEffect(() => {
-    const handleScroll = () => {
-      if (containerRef.current) {
-        const rect = containerRef.current.getBoundingClientRect();
-        const progress = Math.max(0, Math.min(1, (window.innerHeight - rect.top) / window.innerHeight));
-        setScrollProgress(progress);
-      }
-    };
-    window.addEventListener('scroll', handleScroll);
-    handleScroll();
-    return () => window.removeEventListener('scroll', handleScroll);
-  }, []);
+  }, [journey.length]);
 
   // ===== Close lightbox on ESC; lock body scroll while open =====
   useEffect(() => {
@@ -337,7 +322,9 @@ export default function About() {
                           try {
                             const { naturalWidth, naturalHeight } = e.target;
                             setImgNaturalSize({ w: naturalWidth || 0, h: naturalHeight || 0 });
-                          } catch {}
+                          } catch {
+                            // Natural image size is non-critical for the lightbox.
+                          }
                         }}
                         onClick={openZoom}
                         style={{ backgroundColor: '#000' }}
@@ -513,7 +500,9 @@ export default function About() {
                     w: naturalWidth || w,
                     h: naturalHeight || h
                   }));
-                } catch {}
+                } catch {
+                  // Natural image size is non-critical for the lightbox.
+                }
               }}
             />
           </div>

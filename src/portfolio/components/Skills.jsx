@@ -41,7 +41,7 @@ export default function Skills({ coreSkills = defaultCore, additionalSkills = de
           if (typeof explorerRef.current.focus === 'function') {
             explorerRef.current.focus?.({ preventScroll: true });
           }
-        } catch (e) {
+        } catch {
           // fallback - silent
           explorerRef.current.scrollIntoView();
         }

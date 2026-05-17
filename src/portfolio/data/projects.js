@@ -38,3 +38,46 @@ const projects = [
 ];
 
 export default projects;
+
+export const contributedProjects = [
+  {
+    title: "DPCMS Revamped",
+    description: "A refreshed cooperative finance platform focused on clearer navigation, improved member access, and a smoother experience for tracking savings, investments, and financial activity.",
+    contribution: "Contributed to this project as part of the company team.",
+    techStack: ["Team Project", "React", "Tailwind", "SEO"],
+    image: "/dpcms-revamped.png",
+    website: "https://destinypromoterscooperative.com"
+  },
+  {
+    title: "Flo Finance",
+    description: "A fintech web experience designed to make loan discovery and application flows feel faster, clearer, and more trustworthy for users seeking accessible financial support.",
+    contribution: "Contributed to this project as part of the company team.",
+    techStack: ["Team Project", "React", "Tailwind", "SEO"],
+    image: "/flo-finance.png",
+    website: "https://flofinanceng.com"
+  },
+  {
+    title: "Frisan Foods",
+    description: "A clean food-brand website presenting Frisan's natural products with strong visual storytelling, product-focused sections, and a user journey built around brand trust.",
+    contribution: "Contributed to this project as part of the company team.",
+    techStack: ["Team Project", "React", "Tailwind", "SEO"],
+    image: "/frisan-foods.png",
+    website: "https://www.frisanfoods.com"
+  },
+  {
+    title: "Fortune Initiative",
+    description: "A finance-focused corporate website structured to communicate investment services, advisory support, and client confidence through a polished digital presence.",
+    contribution: "Contributed to this project as part of the company team.",
+    techStack: ["Team Project", "React", "Tailwind", "SEO"],
+    image: "/fortune-initiative.png",
+    website: "https://fortuneinitiativeng.com"
+  },
+  {
+    title: "Maicon Hotels",
+    description: "A hospitality website showcasing Maicon Hotels with a premium first impression, room discovery paths, and clear calls to action for prospective guests.",
+    contribution: "Contributed to this project as part of the company team.",
+    techStack: ["Team Project", "React", "Tailwind", "SEO"],
+    image: "/maicon-hotels.png",
+    website: "https://maiconhotels.netlify.app"
+  }
+];

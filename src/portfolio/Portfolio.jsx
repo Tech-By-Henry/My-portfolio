@@ -9,7 +9,7 @@ import Stats from './components/Stats';
 import Contact from './components/Contact';
 import Footer from './components/Footer'; // <-- added
 
-import projects from './data/projects';
+import projects, { contributedProjects } from './data/projects';
 import { coreSkills, additionalSkills, stats, socialLinks } from './data/skills';
 
 export default function Portfolio() {
@@ -292,6 +292,8 @@ export default function Portfolio() {
         <div className="w-full h-px bg-gradient-to-r from-transparent via-white/10 to-transparent" />
 
         <section id="projects"><Projects projects={projects} /></section>
+
+        <Projects projects={contributedProjects} title="Projects I Contributed To" />
 
         {/* Faint demarcation line */}
         <div className="w-full h-px bg-gradient-to-r from-transparent via-white/10 to-transparent" />

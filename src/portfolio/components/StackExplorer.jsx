@@ -1,7 +1,7 @@
 // src/portfolio/components/StackExplorer.jsx
 import React from "react";
 import StackTree from "./StackTree";
-import { coreSkills, additionalSkills, stats, socialLinks } from "../data/skills";
+import { coreSkills, additionalSkills } from "../data/skills";
 
 /**
  * StackExplorer

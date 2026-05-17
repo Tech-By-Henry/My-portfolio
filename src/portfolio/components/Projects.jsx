@@ -1,14 +1,15 @@
 import React, { useState, useEffect, useRef } from 'react';
 import ProjectCard from './ProjectCard';
 
-export default function Projects({ projects }) {
+export default function Projects({ projects, title = "Featured Projects" }) {
   const [activeIndex, setActiveIndex] = useState(0);
-  const [isInView, setIsInView] = useState(false);
   const sectionRef = useRef(null);
 
   useEffect(() => {
     const observer = new IntersectionObserver(
-      ([entry]) => setIsInView(entry.isIntersecting),
+      () => {
+        // Reserved for section-level entrance effects.
+      },
       { threshold: 0.3 }
     );
 
@@ -27,7 +28,7 @@ export default function Projects({ projects }) {
         <div className="relative mb-8 sm:mb-12 lg:mb-16">
           <div className="relative text-center">
             <h2 className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl xl:text-7xl font-black bg-gradient-to-r from-purple-400 to-cyan-400 bg-clip-text text-transparent">
-              Featured Projects
+              {title}
             </h2>
             
             {/* Simple Underline */}
