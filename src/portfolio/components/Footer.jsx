@@ -15,14 +15,14 @@ export default function Footer() {
 
         {/* centered text */}
         <p className="text-center text-xs sm:text-sm text-gray-400 col-start-2">
-          © {year}. All rights reserved.
+          © {year} Henry Iheonu · Tech By Henry. All rights reserved.
         </p>
 
         {/* logo pinned to the far right */}
         <div className="justify-self-end">
           <img
             src="/Logo.png"            // from /public
-            alt="Henry logo"
+            alt="Tech By Henry logo"
             loading="lazy"
             className="h-8 sm:h-9 w-auto object-contain opacity-90 hover:opacity-100 transition"
           />

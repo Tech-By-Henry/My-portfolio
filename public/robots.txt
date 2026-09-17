@@ -1,0 +1,6 @@
+User-agent: *
+Allow: /
+Disallow: /src/
+
+Sitemap: https://tech-by-henry.vercel.app/sitemap.xml
+Host: https://tech-by-henry.vercel.app

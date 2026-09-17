@@ -21,13 +21,16 @@ export default function Projects({ projects, title = "Featured Projects" }) {
   }, []);
 
   return (
-    <section ref={sectionRef} className="px-4 sm:px-6 lg:px-8 py-8 sm:py-12 lg:py-16 relative overflow-hidden">
+    <div ref={sectionRef} className="px-4 sm:px-6 lg:px-8 py-8 sm:py-12 lg:py-16 relative overflow-hidden" aria-labelledby={`projects-heading-${title.replace(/\s+/g, "-").toLowerCase()}`}>
       <div className="max-w-7xl mx-auto relative z-10 w-full">
         
         {/* Simplified Title Section */}
         <div className="relative mb-8 sm:mb-12 lg:mb-16">
           <div className="relative text-center">
-            <h2 className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl xl:text-7xl font-black bg-gradient-to-r from-purple-400 to-cyan-400 bg-clip-text text-transparent">
+            <h2
+              id={`projects-heading-${title.replace(/\s+/g, "-").toLowerCase()}`}
+              className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl xl:text-7xl font-black bg-gradient-to-r from-purple-400 to-cyan-400 bg-clip-text text-transparent"
+            >
               {title}
             </h2>
             
@@ -158,6 +161,6 @@ export default function Projects({ projects, title = "Featured Projects" }) {
           }
         }
       `}</style>
-    </section>
+    </div>
   );
 }

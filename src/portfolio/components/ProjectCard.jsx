@@ -126,7 +126,7 @@ export default function ProjectCard({
               <div className="relative mb-4 sm:mb-6 h-36 sm:h-44 lg:h-52 rounded-xl sm:rounded-2xl overflow-hidden border border-white/10 bg-black/30">
                 <img
                   src={project.image}
-                  alt={`${project.title} preview`}
+                  alt={`${project.title} website screenshot`}
                   loading="lazy"
                   className="block w-full h-full min-w-full min-h-full object-cover object-left-top transform group-hover:scale-105 transition-transform duration-700"
                 />

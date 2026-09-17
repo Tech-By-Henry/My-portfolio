@@ -1,0 +1,17 @@
+{
+  "name": "Tech By Henry — Henry Iheonu Portfolio",
+  "short_name": "Tech By Henry",
+  "description": "Full-stack software engineer in Lagos, Nigeria. React, Django, Python, and production web apps.",
+  "start_url": "/",
+  "display": "standalone",
+  "background_color": "#000000",
+  "theme_color": "#000000",
+  "lang": "en",
+  "icons": [
+    {
+      "src": "/favico.png",
+      "sizes": "192x192",
+      "type": "image/png"
+    }
+  ]
+}

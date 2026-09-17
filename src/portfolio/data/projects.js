@@ -41,10 +41,26 @@ export default projects;
 
 export const contributedProjects = [
   {
+    title: "Meezak Technologies",
+    description: "A digital agency website for Meezak Technologies, presenting web design, UI/UX, mobile apps, and IT consulting with a clear path from brand story to contact.",
+    contribution: "Contributed to this project as part of the company team.",
+    techStack: ["Team Project", "React", "Tailwind", "SEO"],
+    image: "/meezak.png",
+    website: "https://meezaktechnologies.com/"
+  },
+  {
+    title: "Get a Pro",
+    description: "A Nigeria artisan marketplace that helps people hire trusted electricians and other professionals — fast, reliable, and fully managed through the web experience and companion mobile app.",
+    contribution: "Contributed to this project as part of the company team.",
+    techStack: ["Team Project", "React", "Tailwind", "SEO"],
+    image: "/get-a-pro.png",
+    website: "https://getaprong.com/"
+  },
+  {
     title: "DPCMS Revamped",
     description: "A refreshed cooperative finance platform focused on clearer navigation, improved member access, and a smoother experience for tracking savings, investments, and financial activity.",
     contribution: "Contributed to this project as part of the company team.",
-    techStack: ["Team Project", "React", "Tailwind", "SEO"],
+    techStack: ["Team Project", "HTML", "CSS"],
     image: "/dpcms-revamped.png",
     website: "https://destinypromoterscooperative.com"
   },

@@ -159,6 +159,10 @@ export default function Hero() {
 
           {/* LEFT: Titles */}
           <div className="lg:col-span-7 lg:col-start-2 text-center lg:text-left">
+            <h1 className="sr-only">
+              Henry Iheonu — Full-Stack Software Engineer in Lagos, Nigeria. React, Django, Python, HTML and CSS.
+            </h1>
+
             {/* Badge */}
             <div className="inline-flex items-center gap-2 px-3 py-1.5 sm:px-4 sm:py-2 bg-gradient-to-r from-purple-600/20 to-cyan-600/20 border border-purple-500/30 rounded-full text-xs sm:text-sm text-purple-300 mb-4 backdrop-blur-sm animate-fade-in">
               <div className="w-2 h-2 bg-green-400 rounded-full animate-pulse"></div>
@@ -260,7 +264,7 @@ export default function Hero() {
             {/* About */}
             <div className="relative">
               <p className="text-sm sm:text-base md:text-xl text-gray-400 max-w-lg leading-relaxed mb-8 sm:mb-12 mx-auto lg:mx-0 backdrop-blur-sm bg-black/20 p-3 sm:p-4 rounded-lg border border-white/10">
-                Design-minded developer crafting exceptional digital experiences from{" "}
+                Design-minded full-stack software engineer building React, Django, and HTML/CSS products from{" "}
                 <span className="text-cyan-300 font-semibold relative">
                   <span className="absolute inset-0 bg-cyan-400/20 blur-lg hidden sm:block"></span>
                   <span className="relative"> Lagos, Nigeria</span>

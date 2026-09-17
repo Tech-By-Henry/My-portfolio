@@ -119,6 +119,7 @@ export default function Navbar() {
   return (
     <>
       <nav
+        aria-label="Primary"
         className={`fixed top-0 left-0 right-0 w-full z-50 transition-all duration-300 ${
           isNavbarScrolled ? "backdrop-blur-xl bg-black/60" : "backdrop-blur-0 bg-transparent"
         }`}
@@ -134,7 +135,7 @@ export default function Navbar() {
             <div className="flex items-center h-full">
               <img
                 src="/Logo.png"
-                alt="Henry logo"
+                alt="Tech By Henry — Henry Iheonu portfolio"
                 loading="eager"
                 className="h-10 sm:h-12 md:h-14 lg:h-16 w-auto object-contain"
                 style={{ maxHeight: "64px" }}

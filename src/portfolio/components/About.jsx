@@ -315,7 +315,7 @@ export default function About() {
                     <div className="absolute inset-3 sm:inset-6 rounded-full flex items-center justify-center text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-black text-white shadow-xl border border-white/10 group-hover:scale-110 transition-transform duration-300">
                       <img
                         src="/contact2.png"
-                        alt="Henry avatar"
+                        alt="Henry Iheonu, full-stack software engineer in Lagos, Nigeria"
                         loading="lazy"
                         ref={avatarImgRef}
                         onLoad={(e) => {
@@ -333,8 +333,8 @@ export default function About() {
                     </div>
                   </div>
 
-                  <h3 className="text-xl sm:text-2xl font-bold text-white mb-1 sm:mb-2">Henry</h3>
-                  <p className="text-sm sm:text-base text-purple-300 font-medium mb-3 sm:mb-4">Software Engineer</p>
+                  <h3 className="text-xl sm:text-2xl font-bold text-white mb-1 sm:mb-2">Henry Iheonu</h3>
+                  <p className="text-sm sm:text-base text-purple-300 font-medium mb-3 sm:mb-4">Full-Stack Software Engineer</p>
                   <div className="w-12 sm:w-16 h-1 bg-gradient-to-r from-purple-500 to-cyan-500 rounded-full mx-auto mb-4 sm:mb-6"></div>
 
                   <p className="text-gray-300 text-xs sm:text-sm leading-relaxed px-2 sm:px-0">
@@ -377,7 +377,7 @@ export default function About() {
                 <h3 className="text-xl sm:text-2xl font-bold text-white mb-4 sm:mb-6">My Story</h3>
                 <div className="space-y-3 sm:space-y-4 text-gray-300 leading-relaxed text-sm sm:text-base">
                   <p>
-                    I'm a passionate <span className="text-purple-300 font-semibold">software engineer</span> from Lagos, Nigeria, specializing in full-stack development.
+                    I'm <span className="text-purple-300 font-semibold">Henry Iheonu</span>, a passionate software engineer from Lagos, Nigeria, specializing in full-stack development with React, Django, Python, HTML, and CSS.
                   </p>
                   <p>
                     What drives me is the intersection of <span className="text-cyan-300 font-semibold">creativity</span> and <span className="text-purple-300 font-semibold">technology</span> – transforming complex business requirements into intuitive digital solutions.
@@ -488,7 +488,7 @@ export default function About() {
             <img
               ref={zoomImgRef}
               src="/contact2.png"
-              alt="Henry avatar large"
+              alt="Portrait of Henry Iheonu, full-stack software engineer"
               onClick={() => setIsZoomOpen(false)}
               style={{ ...computeZoomStyle(), backgroundColor: '#000' }}
               className="rounded-md shadow-2xl select-none"

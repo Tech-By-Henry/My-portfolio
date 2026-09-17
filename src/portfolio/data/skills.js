@@ -21,7 +21,7 @@ export const additionalSkills = [
 
 export const stats = [
   { number: "2.5+", label: "Years of Experience" },
-  { number: "6+", label: "Projects Completed" },
+  { number: "12+", label: "Projects Completed" },
   { number: "11+", label: "Technologies Mastered" },
   { number: "100%", label: "Client Satisfaction" }
 ];

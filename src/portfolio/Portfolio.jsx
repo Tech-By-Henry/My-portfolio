@@ -8,6 +8,7 @@ import Skills from './components/Skills';
 import Stats from './components/Stats';
 import Contact from './components/Contact';
 import Footer from './components/Footer'; // <-- added
+import Seo from './components/Seo';
 
 import projects, { contributedProjects } from './data/projects';
 import { coreSkills, additionalSkills, stats, socialLinks } from './data/skills';
@@ -280,6 +281,13 @@ export default function Portfolio() {
 
       {/* Main Content - All sections with relative positioning to appear above background */}
       <div className="relative z-10">
+        <Seo />
+        <a
+          href="#projects"
+          className="sr-only focus:not-sr-only focus:absolute focus:top-4 focus:left-4 focus:z-[100] focus:px-4 focus:py-2 focus:bg-purple-600 focus:text-white focus:rounded-lg"
+        >
+          Skip to projects
+        </a>
         <Navbar />
         <section id="home"><Hero /></section>
 
@@ -291,9 +299,13 @@ export default function Portfolio() {
         {/* Faint demarcation line */}
         <div className="w-full h-px bg-gradient-to-r from-transparent via-white/10 to-transparent" />
 
-        <section id="projects"><Projects projects={projects} /></section>
+        <section id="projects" aria-label="Featured projects by Henry Iheonu">
+          <Projects projects={projects} />
+        </section>
 
-        <Projects projects={contributedProjects} title="Projects I Contributed To" />
+        <section id="contributed-projects" aria-label="Client and team projects including Meezak Technologies and Get a Pro">
+          <Projects projects={contributedProjects} title="Projects I Contributed To" />
+        </section>
 
         {/* Faint demarcation line */}
         <div className="w-full h-px bg-gradient-to-r from-transparent via-white/10 to-transparent" />
