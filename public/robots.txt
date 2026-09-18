@@ -1,6 +1,10 @@
 User-agent: *
 Allow: /
-Disallow: /src/
+
+User-agent: Googlebot
+Allow: /
+
+User-agent: Bingbot
+Allow: /
 
 Sitemap: https://tech-by-henry.vercel.app/sitemap.xml
-Host: https://tech-by-henry.vercel.app

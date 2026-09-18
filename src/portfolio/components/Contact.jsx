@@ -130,7 +130,7 @@ export default function Contact({ socialLinks = {}, email = "techbyhenry@gmail.c
         {/* Header */}
         <div className="text-center mb-8 sm:mb-12">
           <h2 className="text-3xl sm:text-4xl md:text-5xl font-bold mb-3 bg-gradient-to-r from-purple-400 to-cyan-400 bg-clip-text text-transparent">
-            Let's Work Together
+            Let's Work Together — Tech By Henry
           </h2>
           <p className="text-base sm:text-lg text-slate-400 max-w-2xl mx-auto">
             Ready to bring your ideas to life? Drop me a line and let's create something amazing.

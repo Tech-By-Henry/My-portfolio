@@ -1,5 +1,32 @@
 @import "tailwindcss";
 
+html,
+body {
+  background: #000;
+  color: #e5e7eb;
+}
+
+body > article {
+  position: relative;
+  z-index: 1;
+  max-width: 72rem;
+  margin: 0 auto;
+  padding: 3rem 1.25rem 4.5rem;
+  line-height: 1.7;
+}
+
+body > article h1 {
+  font-size: 1.75rem;
+  font-weight: 800;
+  color: #fff;
+  margin-bottom: 1rem;
+}
+
+body > article a {
+  color: #67e8f9;
+  text-decoration: underline;
+}
+
 .sr-only {
   position: absolute;
   width: 1px;
@@ -22,6 +49,7 @@
   clip: auto;
   white-space: normal;
 }
+
 
 
 

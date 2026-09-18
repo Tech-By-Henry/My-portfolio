@@ -258,22 +258,22 @@ export default function About() {
         <div className="text-center mb-12 sm:mb-16">
           <div className="inline-flex items-center gap-2 px-3 py-2 sm:px-4 sm:py-2 bg-gradient-to-r from-purple-600/20 to-cyan-600/20 border border-purple-500/30 rounded-full text-xs sm:text-sm text-purple-300 mb-4 sm:mb-6 backdrop-blur-sm">
             <div className="w-1.5 h-1.5 sm:w-2 sm:h-2 bg-cyan-400 rounded-full animate-pulse"></div>
-            About Henry
+            About Tech By Henry
           </div>
 
           <div className="relative mb-6 sm:mb-8">
             <div className="absolute inset-0 opacity-20">
               <h2 className="text-3xl sm:text-5xl md:text-6xl lg:text-7xl font-black text-purple-500 blur-sm transform translate-x-1 translate-y-1 animate-glitch-1">
-                About Me
+                About Henry Iheonu
               </h2>
             </div>
             <div className="absolute inset-0 opacity-15">
               <h2 className="text-3xl sm:text-5xl md:text-6xl lg:text-7xl font-black text-cyan-500 blur-sm transform -translate-x-1 -translate-y-1 animate-glitch-2">
-                About Me
+                About Henry Iheonu
               </h2>
             </div>
             <h2 className="relative text-3xl sm:text-5xl md:text-6xl lg:text-7xl font-black bg-gradient-to-r from-white via-purple-200 to-cyan-200 bg-clip-text text-transparent leading-none hover:scale-105 transition-transform duration-300 cursor-default">
-              About Me
+              About Henry Iheonu
             </h2>
           </div>
 
@@ -334,7 +334,7 @@ export default function About() {
                   </div>
 
                   <h3 className="text-xl sm:text-2xl font-bold text-white mb-1 sm:mb-2">Henry Iheonu</h3>
-                  <p className="text-sm sm:text-base text-purple-300 font-medium mb-3 sm:mb-4">Full-Stack Software Engineer</p>
+                  <p className="text-sm sm:text-base text-purple-300 font-medium mb-3 sm:mb-4">Tech By Henry · Software Engineer</p>
                   <div className="w-12 sm:w-16 h-1 bg-gradient-to-r from-purple-500 to-cyan-500 rounded-full mx-auto mb-4 sm:mb-6"></div>
 
                   <p className="text-gray-300 text-xs sm:text-sm leading-relaxed px-2 sm:px-0">
@@ -377,7 +377,9 @@ export default function About() {
                 <h3 className="text-xl sm:text-2xl font-bold text-white mb-4 sm:mb-6">My Story</h3>
                 <div className="space-y-3 sm:space-y-4 text-gray-300 leading-relaxed text-sm sm:text-base">
                   <p>
-                    I'm <span className="text-purple-300 font-semibold">Henry Iheonu</span>, a passionate software engineer from Lagos, Nigeria, specializing in full-stack development with React, Django, Python, HTML, and CSS.
+                    I'm <span className="text-purple-300 font-semibold">Henry Iheonu</span>, also known as{" "}
+                    <span className="text-cyan-300 font-semibold">Tech By Henry</span> and{" "}
+                    <span className="text-purple-300 font-semibold">Iheonu</span>, a software engineer from Lagos, Nigeria, specializing in full-stack development with React, Django, Python, HTML, and CSS.
                   </p>
                   <p>
                     What drives me is the intersection of <span className="text-cyan-300 font-semibold">creativity</span> and <span className="text-purple-300 font-semibold">technology</span> – transforming complex business requirements into intuitive digital solutions.

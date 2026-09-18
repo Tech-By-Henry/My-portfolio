@@ -15,7 +15,7 @@ export default function Footer() {
 
         {/* centered text */}
         <p className="text-center text-xs sm:text-sm text-gray-400 col-start-2">
-          © {year} Henry Iheonu · Tech By Henry. All rights reserved.
+          © {year} Tech By Henry · Henry Iheonu (Iheonu). All rights reserved.
         </p>
 
         {/* logo pinned to the far right */}

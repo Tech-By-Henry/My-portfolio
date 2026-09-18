@@ -129,17 +129,21 @@ export default function Navbar() {
           {/* Logo */}
           <button
             onClick={() => scrollToSection("home")}
-            aria-label="Go to home"
+            aria-label="Tech By Henry home — Henry Iheonu"
             className="flex items-center gap-3 focus:outline-none h-full"
           >
-            <div className="flex items-center h-full">
+            <div className="flex items-center gap-2 h-full">
               <img
                 src="/Logo.png"
-                alt="Tech By Henry — Henry Iheonu portfolio"
+                alt="Tech By Henry logo — Henry Iheonu (Iheonu)"
                 loading="eager"
                 className="h-10 sm:h-12 md:h-14 lg:h-16 w-auto object-contain"
                 style={{ maxHeight: "64px" }}
               />
+              <span className="text-left leading-tight">
+                <span className="block text-sm sm:text-base font-bold text-white">Tech By Henry</span>
+                <span className="block text-[11px] sm:text-xs text-gray-400">Henry Iheonu · Iheonu</span>
+              </span>
             </div>
           </button>
 

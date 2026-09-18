@@ -1,0 +1,10 @@
+/* TEAM */
+Name: Henry Iheonu
+Brand: Tech By Henry
+Also known as: Iheonu, TechByHenry, Tech-By-Henry
+Site: https://tech-by-henry.vercel.app/
+Email: techbyhenry@gmail.com
+Location: Lagos, Nigeria
+GitHub: https://github.com/Tech-By-Henry/
+Twitter: https://x.com/TechByHenry1
+LinkedIn: https://www.linkedin.com/in/techbyhenry-iheonu-798300380/

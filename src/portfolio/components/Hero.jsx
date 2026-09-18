@@ -32,6 +32,9 @@ export default function Hero() {
   }, []);
 
   const words = [
+    { text: "Tech By Henry", subtitle: "Official site of Henry Iheonu" },
+    { text: "Henry Iheonu", subtitle: "Also known as Iheonu — your next developer" },
+    { text: "Iheonu", subtitle: "The software engineer behind Tech By Henry" },
     { text: "Henry", subtitle: "That's me - your next developer" },
     { text: "Problem Solver", subtitle: "I turn complex challenges into elegant solutions" },
     { text: "Code Craftsman", subtitle: "Building digital experiences that just work" },
@@ -159,9 +162,12 @@ export default function Hero() {
 
           {/* LEFT: Titles */}
           <div className="lg:col-span-7 lg:col-start-2 text-center lg:text-left">
-            <h1 className="sr-only">
-              Henry Iheonu — Full-Stack Software Engineer in Lagos, Nigeria. React, Django, Python, HTML and CSS.
+            <h1 className="text-2xl xs:text-3xl sm:text-4xl md:text-6xl xl:text-7xl font-black leading-none bg-clip-text text-transparent bg-gradient-to-r from-white via-purple-200 to-cyan-200 mb-2">
+              Tech By Henry
             </h1>
+            <p className="text-base sm:text-lg md:text-2xl text-white font-semibold mb-3">
+              Henry Iheonu · Iheonu
+            </p>
 
             {/* Badge */}
             <div className="inline-flex items-center gap-2 px-3 py-1.5 sm:px-4 sm:py-2 bg-gradient-to-r from-purple-600/20 to-cyan-600/20 border border-purple-500/30 rounded-full text-xs sm:text-sm text-purple-300 mb-4 backdrop-blur-sm animate-fade-in">
@@ -182,7 +188,7 @@ export default function Hero() {
                   key={`headline-out-${index}-${dir}-${animating}`}
                   className={[
                     "inline-block font-black leading-none bg-clip-text text-transparent",
-                    "text-2xl xs:text-3xl sm:text-4xl md:text-6xl xl:text-7xl",
+                    "text-xl xs:text-2xl sm:text-3xl md:text-5xl xl:text-6xl",
                     "bg-gradient-to-r from-white via-purple-200 to-cyan-200",
                     animating
                       ? (headlineGoingRight ? "anim-out-right" : "anim-out-left")
@@ -199,7 +205,7 @@ export default function Hero() {
                     key={`headline-in-${nextIndex}-${dir}`}
                     className={[
                       "inline-block font-black leading-none bg-clip-text text-transparent absolute inset-0",
-                      "text-2xl xs:text-3xl sm:text-4xl md:text-6xl xl:text-7xl",
+                      "text-xl xs:text-2xl sm:text-3xl md:text-5xl xl:text-6xl",
                       "bg-gradient-to-r from-white via-purple-200 to-cyan-200",
                       headlineGoingRight ? "anim-in-from-left" : "anim-in-from-right",
                     ].join(" ")}
@@ -253,10 +259,10 @@ export default function Hero() {
             <div className="mb-6 sm:mb-8 relative">
               <div className="absolute -left-3 top-0 w-1 h-full bg-gradient-to-b from-purple-500 to-cyan-500 rounded-full opacity-60 hidden md:block"></div>
               <p className="text-base sm:text-lg md:text-2xl text-gray-300 font-light mb-1 sm:mb-2 pl-0 sm:pl-6">
-                Software Engineer
+                Full-Stack Software Engineer
               </p>
               <p className="text-sm sm:text-base md:text-lg text-purple-300 pl-0 sm:pl-6 font-medium">
-                Full-Stack Developer
+                Tech By Henry · Henry Iheonu · Lagos, Nigeria
               </p>
               <div className="w-20 sm:w-24 h-1 bg-gradient-to-r from-purple-500 to-cyan-500 mt-3 sm:mt-4 rounded-full ml-0 sm:ml-6 shadow-lg shadow-purple-500/30"></div>
             </div>
@@ -264,7 +270,9 @@ export default function Hero() {
             {/* About */}
             <div className="relative">
               <p className="text-sm sm:text-base md:text-xl text-gray-400 max-w-lg leading-relaxed mb-8 sm:mb-12 mx-auto lg:mx-0 backdrop-blur-sm bg-black/20 p-3 sm:p-4 rounded-lg border border-white/10">
-                Design-minded full-stack software engineer building React, Django, and HTML/CSS products from{" "}
+                Official portfolio of <span className="text-white font-semibold">Tech By Henry</span> —{" "}
+                <span className="text-white font-semibold">Henry Iheonu</span> (Iheonu), a design-minded full-stack
+                software engineer building React, Django, and HTML/CSS products from{" "}
                 <span className="text-cyan-300 font-semibold relative">
                   <span className="absolute inset-0 bg-cyan-400/20 blur-lg hidden sm:block"></span>
                   <span className="relative"> Lagos, Nigeria</span>
